@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+ul {
+  display: flex;
+}
+
+.nav-item {
+  height: 40px;
+  padding: 16px 17px 16px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $text-secondary;
+}
+
+a {
+  transition: $transition-color;
+
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+@media (max-width: 1200px) {
+  li a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .icon {
+    display: none;
+  }
+
+  li a {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+@media (max-width: 768px) {
+  li:not(.mobile), li span {
+    display: none;
+  }
+
+  .icon {
+    display: block;
+  }
+}
+

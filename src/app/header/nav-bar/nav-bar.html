@@ -1,0 +1,12 @@
+<nav class="nav">
+  <ul>
+    @for (item of navItems; track item.iconName) {
+      <li [class.mobile]="item.mobile">
+        <a [href]="item.link" class="nav-item">
+          <i [ngClass]="['icon', item.iconName]"></i>
+          <span>{{ item.label }}</span>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>

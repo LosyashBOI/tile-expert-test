@@ -1,0 +1,47 @@
+.icon {
+  display: block;
+  min-width: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  &.add {
+    background-image: url('assets/icons/add.svg');
+  }
+
+  &.arrow-back {
+    background-image: url('assets/icons/arrow-back.svg');
+  }
+
+  &.contacts {
+    background-image: url('assets/icons/contacts.svg');
+  }
+
+  &.favorites {
+    background-image: url('assets/icons/favorites.svg');
+  }
+
+  &.history {
+    background-image: url('assets/icons/history.svg');
+  }
+
+  &.link {
+    background-image: url('assets/icons/link.svg');
+  }
+
+  &.notifications {
+    background-image: url('assets/icons/notifications.svg');
+  }
+
+  &.search {
+    background-image: url('assets/icons/search.svg');
+  }
+
+  &.tag {
+    background-image: url('assets/icons/tag.svg');
+  }
+
+  &.menu {
+    background-image: url('assets/icons/menu.svg');
+  }
+}

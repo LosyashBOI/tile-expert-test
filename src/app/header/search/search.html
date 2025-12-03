@@ -1,0 +1,68 @@
+<button
+  class="icon search"
+  aria-label="Поиск"
+  (click)="searchService.toggleSearchInput($event)"
+></button>
+<form
+  [class.active]="searchService.isSearchInputExpanded()"
+  appClickOutside
+  (clickOutside)="searchService.closeSearch()"
+>
+  <div class="search-wrapper" [class.expanded]="searchService.isSearchInputExpanded()">
+    @if (isMobile() && searchService.isSearchInputExpanded()) {
+      <button
+        type="button"
+        class="icon arrow-back"
+        aria-label="Вернуться назад"
+        (click)="searchService.closeSearch()"
+      ></button>
+    }
+    <input
+      type="text"
+      class="search-input"
+      [placeholder]="isMobile() ? 'Поиск' : 'Поисковый запрос'"
+      [attr.tabindex]="searchService.isSearchInputExpanded() ? 0 : -1"
+      [attr.aria-hidden]="!searchService.isSearchInputExpanded()"
+      (focus)="searchService.openFilters()"
+    />
+  </div>
+
+  @if (searchService.isSearchFiltersOpen()) {
+    <div class="search-filters">
+      <div class="sidebar">
+        <p class="history-label">История</p>
+        <ul class="list">
+          @for (text of history; track text) {
+            <li>
+              <button type="button" class="history-btn">{{ text }}</button>
+            </li>
+          }
+        </ul>
+      </div>
+      <div class="filters">
+        <div class="author-input">
+          <label for="author">Автор</label>
+          <input id="author" type="text" placeholder="Имя или должность" />
+          <span class="author-icon">Я</span>
+        </div>
+        <div class="checkboxes-row top-row">
+          <app-checkbox label="Я участник" />
+          @if (isMobile()) {
+            <app-checkbox label="В заголовках" />
+            <app-checkbox label="Строгий поиск" />
+          } @else {
+            <app-checkbox label="Строгий поиск" />
+            <app-checkbox label="В заголовках" />
+          }
+        </div>
+
+        <p class="filters-label">Только</p>
+        <div class="checkboxes-row">
+          <app-checkbox label="Теги" />
+          <app-checkbox label="Просьбы" />
+          <app-checkbox label="Контакты" />
+        </div>
+      </div>
+    </div>
+  }
+</form>

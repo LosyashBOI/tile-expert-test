@@ -1,0 +1,31 @@
+<header class="header">
+  <div class="container">
+    <button class="icon menu" aria-label="Открыть меню"></button>
+    <h1 class="logo">
+      <a href="#">
+        <img ngSrc="assets/logo.png" priority alt="Tile.Expert" width="150" height="56" />
+      </a>
+    </h1>
+    <div class="actions">
+      @if (isMobile()) {
+        <button class="icon add" aria-label="Добавить"></button>
+        <app-nav-bar />
+        <app-search />
+      } @else {
+        <app-nav-bar />
+        <app-search />
+        <button class="icon add" aria-label="Добавить"></button>
+      }
+      <div class="right">
+        <button class="icon notifications" aria-label="Посмотреть уведомление">
+          <span class="notification-badge" aria-label="Количество уведомлений">{{
+            notificationCount
+          }}</span>
+        </button>
+        @if (!isMobile()) {
+          <button class="icon avatar" aria-label="Открыть профиль"></button>
+        }
+      </div>
+    </div>
+  </div>
+</header>
